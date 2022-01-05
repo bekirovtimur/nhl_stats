@@ -156,3 +156,12 @@ get https://statsapi.web.nhl.com/api/v1/teams/4
 # | team_id | team_name             | venue_id | venue_name       | city           | country       |
 # --------------------------------------------------------------------------------------------------
 # | 4       | Philadelphia Flyers   | 5096     | Wells Fargo Ce...| Philadelphia   | United States |
+
+
+
+# Фотографии игроков:
+# https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8477290.jpg
+# https://cms.nhl.bamgrid.com/images/headshots/current/168x168/$player_id.jpg
+#
+#
+#
