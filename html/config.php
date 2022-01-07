@@ -17,8 +17,8 @@
       <a class="navbar-brand" href="#">NHL Stats</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.php">Result</a></li>
-      <li><a href="config.php">Config</a></li>
+      <li><a href="index.php">Result</a></li>
+      <li class="active"><a href="config.php">Config</a></li>
       <li><a href="#">DB Update tool</a></li>
       <li><a href="#">About</a></li>
     </ul>
@@ -26,7 +26,7 @@
 </nav>
   
 <div class="container">
-<?php include 'content_result.php'; ?>
+<?php include 'content_config.php'; ?>
 </div>
 </body>
 </html>
