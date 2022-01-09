@@ -13,8 +13,20 @@ else
   }
 $query = "SELECT `player_id`,`fullName`,`jerseyNumber`,`currentTeam_id`,`currentTeam_name`,SUM(`goals`) FROM `scores` WHERE `nationality`=\"$playernationality\" GROUP BY `player_id`,`fullName`,`jerseyNumber`,`currentTeam_id`,`currentTeam_name` ORDER BY SUM(`goals`) DESC LIMIT $resultlines;";
 $result = mysqli_query($connect,$query);
-echo '<h1>Top '.$resultlines.' list of '.$playernationality.' players</h1>';
+//
+$current_season_query = mysqli_query($connect,"SELECT `season` FROM `games` LIMIT 1;");
+$current_season = mysqli_fetch_array($current_season_query)[0];
+$start_year = mb_substr($current_season, 0, 4);
+$end_year = mb_substr($current_season, 4, 4);
+//
+echo '<h1>Top '.$resultlines.' list of '.$playernationality.' players of '.$start_year.' - '.$end_year.' season</h1>';
 echo '<h3>who scored the maximum number of goals in games in Canada</h3>';
+//
+if ($current_season!=$season)
+  {
+  echo '<h5 style="color:red"></b>Warning! Season changed. Please update `games` and `scores` tables.</b></h5>';
+  }
+//
 if ($result == 0)
   {
   die ("No result found");

@@ -22,7 +22,7 @@
 </td>
 <td><input type="submit" name="vars_test" class="button" value="Test"></td>
 <td><input type="submit" name="vars_create" class="button" value="Create"></td>
-<td><input type="submit" name="vars_upd" class="button" value="Update"></td>
+<td><input type="submit" name="vars_upd" class="button" value="Set defaults"></td>
 <td><input type="submit" name="vars_del" class="button" value="Delete"></td>
 </tr>
 
