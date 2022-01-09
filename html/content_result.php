@@ -1,10 +1,24 @@
 <?php
 include 'vars.php';
 include 'db_connect.php';
+//
+$table = 'scores';
+$sql = "SELECT * FROM `$table` LIMIT 1;";
+if (mysqli_query($connect, $sql)) 
+  {
+  } 
+else 
+  {
+    die ("Error: " . mysqli_error($connect));
+  }
 $query = "SELECT `player_id`,`fullName`,`jerseyNumber`,`currentTeam_id`,`currentTeam_name`,SUM(`goals`) FROM `scores` WHERE `nationality`=\"$playernationality\" GROUP BY `player_id`,`fullName`,`jerseyNumber`,`currentTeam_id`,`currentTeam_name` ORDER BY SUM(`goals`) DESC LIMIT $resultlines;";
 $result = mysqli_query($connect,$query);
 echo '<h1>Top '.$resultlines.' list of '.$playernationality.' players</h1>';
 echo '<h3>who scored the maximum number of goals in games in Canada</h3>';
+if ($result == 0)
+  {
+  die ("No result found");
+  }
 if (mysqli_num_rows($result) > 0) {
   echo "<table class='table table-bordered table-striped'>";
   echo "<tr>";

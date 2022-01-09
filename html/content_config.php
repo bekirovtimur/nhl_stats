@@ -1,5 +1,6 @@
 <?php
-include_once 'vars.php';
+include 'db_connect.php';
+include 'vars.php';
 echo '<h1>App configuration page</h1>';
 echo '<h3></h3>';
   echo "<table class='table table-bordered table-striped'>";
@@ -15,12 +16,29 @@ echo '<h3></h3>';
     echo '<td><b>Season</b></td>';
     echo '<td><input type=text name="season" value="'.$season.'"></td>';
     echo '</tr>';
-
+//
+    $natio_query = "SELECT `nationality` FROM `scores` GROUP BY `nationality`;";
+    $natio_result = mysqli_query($connect, $natio_query);
     echo '<tr>';
     echo '<td><b>Nationality</b></td>';
-    echo '<td><input type=text name="nationality" value="'.$playernationality.'"></td>';
+    echo '<td>';
+    echo '<select name="nationality">';
+    while($row = mysqli_fetch_array($natio_result))
+      {
+        if($row[0]==$playernationality)
+          {
+            $slct = " selected ";
+          }
+        else
+          {
+            $slct = "";
+          }  
+    echo '<option value="'.$row[0].'"'.$slct.'">'.$row[0].'</option>';
+      }
+    echo '</select>';
+    echo '</td>';
     echo '</tr>';
-
+//
     echo '<tr>';
     echo '<td><b>Top players</b></td>';
     echo '<td><input type=text name="resultlines" value="'.$resultlines.'"></td>';
@@ -45,10 +63,3 @@ echo("<meta http-equiv='refresh' content='0'>"); //Refresh by HTTP 'meta'
     }
     echo '</form>';
 ?>
-
-
-
-
-
-
-

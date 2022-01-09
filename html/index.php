@@ -19,7 +19,7 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.php">Result</a></li>
       <li><a href="config.php">Config</a></li>
-      <li><a href="#">DB Update tool</a></li>
+      <li><a href="dbtool.php">DB Update tool</a></li>
       <li><a href="#">About</a></li>
     </ul>
   </div>

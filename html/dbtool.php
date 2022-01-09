@@ -18,15 +18,15 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="index.php">Result</a></li>
-      <li class="active"><a href="config.php">Config</a></li>
-      <li><a href="dbtool.php">DB Update tool</a></li>
+      <li><a href="config.php">Config</a></li>
+      <li class="active"><a href="dbtool.php">DB Update tool</a></li>
       <li><a href="#">About</a></li>
     </ul>
   </div>
 </nav>
   
 <div class="container">
-<?php include 'content_config.php'; ?>
+<?php include 'content_dbtool.php'; ?>
 </div>
 </body>
 </html>
